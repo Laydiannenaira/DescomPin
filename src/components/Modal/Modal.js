@@ -1,18 +1,23 @@
-export const Modal = () => {
+import ModalBS from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
+export const Modal = ({title, children, open, controls = [] }) => {
   return (
-    <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
+    <ModalBS show={open} onHide={() => {}}>
+        <ModalBS.Header closeButton>
+          <ModalBS.Title>{title}</ModalBS.Title>
+        </ModalBS.Header>
+        <ModalBS.Body>{children}</ModalBS.Body>
+        <ModalBS.Footer>
+          {controls.map((control, controlIndex) => (
+            <Button key={controlIndex} variant={control.variant} onClick={control.onClick}>
+              {control.label}
+            </Button>
+          ))}
+          {/* <Button variant="primary">
             Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+          </Button> */}
+        </ModalBS.Footer>
+      </ModalBS>
   )
 }
