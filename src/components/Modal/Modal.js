@@ -12,12 +12,7 @@ export const Modal = ({title, children, open, controls = [] }) => {
           {controls.map((control, controlIndex) => (
             <Button 
               key={controlIndex} 
-              variant={control.variant} 
-              onClick={control.onClick}
-              label="Salvar"
-              loadingLabel="Salvando"
-              loading={true}
-              disabled={true}
+              {...control}
             />
           ))}
           {/* <Button variant="primary">
