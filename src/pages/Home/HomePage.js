@@ -9,7 +9,8 @@ import { Notification } from '../../components/Notification/Notification';
 export const HomePage = () => {
   return (
     <>
-      <ModalCreatefolder open={true} />
+    <ModalSavePin open={false} />
+      <ModalCreatefolder open={false} />
       <Notification
         message='Criado com sucesso'
         onClose={() => {
